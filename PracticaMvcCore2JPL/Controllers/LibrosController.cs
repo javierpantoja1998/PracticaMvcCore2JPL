@@ -73,5 +73,13 @@ namespace PracticaMvcCore2JPL.Controllers
                 return View(libros);
             }
         }
+
+        public IActionResult Pedidos()
+        {
+            List<int> carrito = HttpContext.Session.GetObject<List<int>>("CARRITO");
+            List<Libro> zapatillas = this.repo.GetLibrosCarrito(carrito);
+            HttpContext.Session.Remove("CARRITO");
+            return View(zapatillas);
+        }
     }
 }

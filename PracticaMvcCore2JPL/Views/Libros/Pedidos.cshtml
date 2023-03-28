@@ -1,0 +1,30 @@
+﻿@model List<Libro>
+
+	<h1>LIBROS COMPRADOS</h1>
+<table>
+		<thead>
+			<tr>
+				<th>AUTOR</th>
+				<th>PRECIO</th>
+				<th>TITULO</th>
+				<th>PORTADA</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Libro libro in Model)
+				{
+			<tr>
+				<td>@libro.Autor</td>
+				<td>@libro.Precio</td>
+				<td>@libro.Titulo</td>
+				<td>
+					<img src="~/images/@libro.Portada" style="width:150px; height:150px">
+				</td>
+				
+			</tr>
+				}
+			
+		</tbody>
+	</table>
+	

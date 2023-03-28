@@ -22,11 +22,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Libros" asp-action="Index">Libros</a>
                         </li>
+                        <li>
+                            
+                            <a asp-controller="Libros" asp-action="Carrito">Carrito</a>
+                        </li>
                         @await Component.InvokeAsync("DesplegableGeneros")
                       
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">LogIn</a>
-                        </li>
+                         
+                        
+                        <partial name="_MenuUsuario" />
                     </ul>
 
                 </div>

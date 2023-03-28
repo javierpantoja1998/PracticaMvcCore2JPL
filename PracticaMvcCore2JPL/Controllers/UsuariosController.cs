@@ -57,7 +57,20 @@ namespace PracticaMvcCore2JPL.Controllers
             }
 		}
 
-		public IActionResult AccesoDenegado()
+        //LOG OUT
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync
+                (CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Libros");
+        }
+
+        public IActionResult PerfilUsuario()
+        {
+            return View();
+        }
+
+        public IActionResult AccesoDenegado()
         {
 			return View();
         }
