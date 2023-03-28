@@ -1,0 +1,40 @@
+﻿@model Libro
+
+@{
+    //Le pasamos el carrito
+        List<int> carrito = Context.Session.GetObject<List<int>>("CARRITO");
+
+}
+
+@if(Model != null){
+
+
+    <div class="card">
+  
+
+         <img src="~/images/@Model.Portada" class="foto" style="width:20%"; height="30%">
+
+            <h4 style="height:30px">Titulo: @Model.Titulo</h4>
+            <h4 style="height:30px">Precio: @Model.Precio</h4>
+            <h4 style="height:30px">Autor: @Model.Autor</h4>
+             <span class="product-price">
+                        <button class="btn btn-info">
+                            <i class="fa fa-star text-success">
+                                @if (carrito != null && carrito.Contains(@Model.IdLibro))
+                                {
+                                    <button disabled class="btn btn-outline-danger disabled">En carrito</button>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-outline-success" asp-action="LibroDetalles" asp-controller="Libros" asp-route-idlibro="@Model.IdLibro" asp-route-idlibroCarrito="@Model.IdLibro">
+                                        Comprar
+                                    </a>
+                                }
+                            </i>
+                        </button>
+
+                    </span>
+  </div>
+
+
+}

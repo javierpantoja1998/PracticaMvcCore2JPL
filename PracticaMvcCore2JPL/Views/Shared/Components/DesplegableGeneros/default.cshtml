@@ -1,0 +1,12 @@
+﻿@model List<Genero> //Le pasamos una lista de generos en el modelo
+
+@*Creamos el desplegable*@
+<ul class="dropdown">
+    @foreach (Genero gen in Model)
+    {
+       
+        <li>
+            <a asp-controller="Libros" asp-action="LibrosGenero" asp-route-idgenero="@gen.IdGenero">@gen.Nombre</a>
+        </li>
+    }
+</ul>
