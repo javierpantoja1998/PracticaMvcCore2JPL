@@ -1,0 +1,12 @@
+﻿@{
+    if(Context.Session.GetObject<List<int>>("CARRITO") != null)
+    {
+        <span>
+            @(Context.Session.GetObject<List<int>>("CARRITO").Count)
+        </span>
+    }
+    else
+    {
+        <span>0</span>
+    }
+}

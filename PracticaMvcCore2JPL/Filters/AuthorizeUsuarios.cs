@@ -12,14 +12,7 @@ namespace PracticaMvcCore2JPL.Filters
             var user = context.HttpContext.User;
             if (user.Identity.IsAuthenticated == false)
             {
-                context.Result = this.GetRoute("Libros", "Index");
-            }
-            else
-            {
-
-                context.Result = this.GetRoute("Usuarios", "AccesoDenegado");
-
-
+                context.Result = this.GetRoute("Usuarios", "LogIn");
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PracticaMvcCore2JPL.Extensions;
+using PracticaMvcCore2JPL.Filters;
 using PracticaMvcCore2JPL.Models;
 using PracticaMvcCore2JPL.Repositories;
 
@@ -29,6 +30,7 @@ namespace PracticaMvcCore2JPL.Controllers
 
 
         //FUNCION PARA GUARDAR LOS LIBROS EN EL CARRITO
+        [AuthorizeUsuarios]
         public IActionResult LibroDetalles(int idlibro, int? idlibroCarrito)
         {
             if (idlibroCarrito != null)
@@ -74,6 +76,7 @@ namespace PracticaMvcCore2JPL.Controllers
             }
         }
 
+        
         public IActionResult Pedidos()
         {
             List<int> carrito = HttpContext.Session.GetObject<List<int>>("CARRITO");

@@ -24,7 +24,10 @@
                         </li>
                         <li>
                             
-                            <a asp-controller="Libros" asp-action="Carrito">Carrito</a>
+                            <a asp-controller="Libros" asp-action="Carrito">
+                                <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png"  style="height:50px"; width="50px"/>
+                            </a>
+                            <partial name="_MiVistaCarrito"/>
                         </li>
                         @await Component.InvokeAsync("DesplegableGeneros")
                       
