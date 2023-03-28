@@ -48,7 +48,39 @@ namespace PracticaMvcCore2JPL.Repositories
                            select datos;
             return consulta.ToList();
         }
+        //FUNCION PARA LA PAGINACION
+        public Libro GetPaginados(int posicion, ref int numeroLibros)
+        {
+            List<Libro> libros = this.GetAllLibros();
+            numeroLibros = libros.Count;
+            Libro libro =
+                libros.Skip(posicion).Take(1).FirstOrDefault();
+            return libro;
+        }
+
+        private int GetMaximoIdPedido()
+        {
+            var maximo = (from datos in this.context.Pedidos
+                          select datos).Max(x => x.IdPedido) + 1;
+            return maximo;
+        }
 
 
+        private int GetMaximoIdFactura()
+        {
+            var maximo = (from datos in this.context.Pedidos
+                          select datos).Max(x => x.IdFactura) + 1;
+            return maximo;
+        }
+
+        /*public async Task insertLibrosAsync( int idlibro)
+        {
+            Pedido ped = new Pedido();
+            int idPedido = this.GetMaximoIdPedido();
+            int idFactura = this.GetMaximoIdFactura();
+
+            ped.IdPedido = idPedido;
+
+        }*/
     }
 }

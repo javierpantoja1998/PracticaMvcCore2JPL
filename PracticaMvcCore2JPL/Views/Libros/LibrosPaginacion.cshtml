@@ -1,0 +1,16 @@
+﻿@model Libro
+
+<h1>PAGINACION LIBROS</h1>
+
+<div class="card" style="width: 18rem;">
+  <h5>@ViewData["DATOS"]</h5>
+  <a asp-controller="Libros" asp-action="LibrosPaginacion"
+  asp-route-posicion="@ViewData["ANTERIOR"]">ANTERIOR</a>
+  <a asp-controller="Libros" asp-action="LibrosPaginacion"
+  asp-route-posicion="@ViewData["SIGUIENTE"]">SIGUIENTE</a>
+    <h5 class="card-title">@Model.Titulo</h5>
+    <p class="card-text">@Model.Resumen</p>
+  <a asp-controller="Libros" asp-action="LibroDetalles"
+  asp-route-idlibro="LibroDetalles" asp-route-idlibroCarrito="@Model.IdLibro">Detalles</a>
+  </div>
+</div>

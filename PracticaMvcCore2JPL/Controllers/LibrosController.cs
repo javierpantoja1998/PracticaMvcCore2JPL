@@ -29,6 +29,31 @@ namespace PracticaMvcCore2JPL.Controllers
         }
 
 
+        public IActionResult LibrosPaginacion(int? posicion)
+        {
+            if(posicion == null)
+            {
+                posicion = 0;
+            }
+            int numeroLibros = 0;
+            Libro libro = this.repo.GetPaginados(posicion.Value, ref numeroLibros);
+            ViewData["DATOS"] = "Libro " + (posicion+1);
+            int siguiente = posicion.Value + 1;
+            if(siguiente >= numeroLibros)
+            {
+                siguiente = 0;
+            }
+            int anterior = posicion.Value - 1;
+            if (anterior < 0)
+            {
+                anterior = numeroLibros - 1;
+            }
+            ViewData["SIGUIENTE"] = siguiente;
+            ViewData["ANTERIOR"] = anterior;
+            return View(libro);
+        }
+
+
         //FUNCION PARA GUARDAR LOS LIBROS EN EL CARRITO
         
         public IActionResult LibroDetalles(int idlibro, int? idlibroCarrito)
