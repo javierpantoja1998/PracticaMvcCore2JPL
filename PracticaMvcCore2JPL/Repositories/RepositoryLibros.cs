@@ -48,5 +48,7 @@ namespace PracticaMvcCore2JPL.Repositories
                            select datos;
             return consulta.ToList();
         }
+
+
     }
 }

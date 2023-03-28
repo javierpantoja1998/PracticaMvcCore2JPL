@@ -30,7 +30,7 @@ namespace PracticaMvcCore2JPL.Controllers
 
 
         //FUNCION PARA GUARDAR LOS LIBROS EN EL CARRITO
-        [AuthorizeUsuarios]
+        
         public IActionResult LibroDetalles(int idlibro, int? idlibroCarrito)
         {
             if (idlibroCarrito != null)
@@ -76,7 +76,7 @@ namespace PracticaMvcCore2JPL.Controllers
             }
         }
 
-        
+        [AuthorizeUsuarios]
         public IActionResult Pedidos()
         {
             List<int> carrito = HttpContext.Session.GetObject<List<int>>("CARRITO");
